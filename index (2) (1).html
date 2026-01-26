@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- www.youtube.com/c/pythonlife -->
+<!-- www.youtube.com/c/riadhcoding -->
+<!-- www.youtube.com/c/pythonblack -->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<!-- www.youtube.com/c/pythonlife -->
+<body>
+    <script>
+        window.addEventListener('mouseup' , function (event){
+            var  box = document.getElementById('menu');
+            if(event.target != box){
+                box.style.width = '0px';
+            }
+        })
+    </script>
+    <!-- www.youtube.com/c/riadhcoding -->
+<div id="mainbox" onclick="openFunction()">&#9776;Menu</div>  
+<div id='menu' class="sidemenu">
+<a href="index.html" id="active">Home</a>
+<a href="login.html">Login in</a>
+<a href="">Register</a>
+<a href="">Feedback</a>
+<a href="" class="closebtn" onclick="closeFunction()">&times;</a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
