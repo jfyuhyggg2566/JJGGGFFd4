@@ -2,80 +2,184 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEPLEOS | تحويل النص إلى صوت</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: system-ui, sans-serif;
+  font-family:Arial;
 }
 
 body{
-  background:#0f172a;
-  color:#fff;
-  text-align:center;
-  padding:1.5rem;
+  background:#fff;
+  color:#000;
+  min-height:100vh;
+}
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:#fff;
+  border-bottom:2px solid #000;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  z-index:1000;
+}
+
+.menu-btn{
+  font-size:28px;
+  cursor:pointer;
+  color:#000;
+  margin-right:15px;
 }
 
 .site-name{
-  font-size:1.8rem;
-  font-weight:600;
-  margin-bottom:1.2rem;
-  letter-spacing:2px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100%;
+  background:#fff;
+  border-right:2px solid #000;
+  padding:25px;
+  transition:0.3s;
+  z-index:999;
+}
+
+.sidebar h3{
+  margin-bottom:20px;
+}
+
+.sidebar a{
+  display:block;
+  margin:15px 0;
+  color:#000;
+  text-decoration:none;
+  font-size:17px;
+}
+
+.container{
+  max-width:500px;
+  margin:100px auto 40px;
+  padding:20px;
+  text-align:center;
 }
 
 img{
-  width:140px;
+  width:100%;
+  border:2px solid #000;
+  border-radius:10px;
+  margin-bottom:25px;
+}
+
+.welcome{
+  margin-bottom:25px;
+  line-height:1.8;
+}
+
+.welcome h2{
+  margin-bottom:10px;
+}
+
+textarea{
+  width:100%;
   height:140px;
-  object-fit:cover;
-  border-radius:16px;
-  margin-bottom:1rem;
+  border:2px solid #000;
+  padding:12px;
+  resize:none;
+  margin-bottom:15px;
+  font-size:15px;
 }
 
-h1{
-  font-size:1.3rem;
-  margin-bottom:.4rem;
+button{
+  width:100%;
+  padding:12px;
+  background:#fff;
+  color:#000;
+  border:2px solid #000;
+  cursor:pointer;
+  font-size:16px;
+  border-radius:6px;
+  margin-bottom:10px;
 }
 
-p{
-  opacity:.85;
-  line-height:1.6;
-  font-size:.95rem;
+button:hover{
+  background:#000;
+  color:#fff;
 }
 
-.links{
-  margin-top:1.2rem;
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-}
-
-a{
-  color:#38bdf8;
-  text-decoration:none;
-  font-size:.9rem;
+@media(max-width:480px){
+  .container{
+    margin:90px 10px 30px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="site-name">Daham</div>
-
-<img src="https://iili.io/fM13Wla.md.jpg" alt="profile">
-
-<h1>Daham</h1>
-<p>
-اهلاً، اني دحام، مبرمج قديم عندي خبرة ومطور برمجيات مختلفة،
-أعمل بجهد حتى أقدم أفضل تجربة للمستخدم.
-</p>
-
-<div class="links">
-  <a href="https://t.me/m_5_kk">Telegram</a>
-  <a href="https://t.me/WebDroms">Channel</a>
+<div class="header">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div class="site-name">DEPLEOS</div>
 </div>
+
+<div class="sidebar" id="menu">
+  <h3>القائمة</h3>
+  <a href="#">تحويل النص إلى صوت</a>
+  <a href="#">المطور: @WW_GGW</a>
+  <a href="#">قناتي التيليجرام: @py_2j</a>
+</div>
+
+<div class="container">
+  <img src="https://iili.io/fc1wEe1.md.jpg">
+
+  <div class="welcome">
+    <h2>مرحبًا بك في DEPLEOS</h2>
+    <p>
+    اهلاً بك عزيزي في DEPLEOS 
+    من خلال هذا الموقع يمكنك تحويل نصك الى صوت بأحترافية ❤
+    يمكنك التحكم بالموقع بسهولة عن طريق وضع النص ومن ثم تشغيل الصوت او تحميله 
+    نتمنا لكم تجربة ممتعة 🌟
+    </p>
+  </div>
+
+  <textarea id="text" placeholder="اكتب النص الذي تريد تحويله إلى صوت..."></textarea>
+  <button onclick="speak()">تشغيل الصوت</button>
+  <button onclick="download()">تحميل الصوت</button>
+</div>
+
+<script>
+function toggleMenu(){
+  let menu = document.getElementById("menu");
+  menu.style.left = menu.style.left === "0px" ? "-260px" : "0px";
+}
+
+let lastSpeech;
+
+function speak(){
+  let text = document.getElementById("text").value;
+  if(text==="") return;
+  lastSpeech = new SpeechSynthesisUtterance(text);
+  lastSpeech.lang = "ar-SA";
+  window.speechSynthesis.speak(lastSpeech);
+}
+
+function download(){
+  alert("تحميل الصوت غير مدعوم مباشرة في المتصفح حالياً، يمكنك تشغيله والاستماع له.");
+}
+</script>
 
 </body>
 </html>
