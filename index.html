@@ -1,81 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar">
+
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta property="og:title" content="موقع انشاء صور بالAI">
+  <meta property="og:description" content="يمكنك انشاء الصور بالذكاء الاصطناعي في اي وقت تشاء ">
+  <meta property="og:image" content="pre.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: system-ui, sans-serif;
-}
-
-body{
-  background:#0f172a;
-  color:#fff;
-  text-align:center;
-  padding:1.5rem;
-}
-
-.site-name{
-  font-size:1.8rem;
-  font-weight:600;
-  margin-bottom:1.2rem;
-  letter-spacing:2px;
-}
-
-img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:16px;
-  margin-bottom:1rem;
-}
-
-h1{
-  font-size:1.3rem;
-  margin-bottom:.4rem;
-}
-
-p{
-  opacity:.85;
-  line-height:1.6;
-  font-size:.95rem;
-}
-
-.links{
-  margin-top:1.2rem;
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-}
-
-a{
-  color:#38bdf8;
-  text-decoration:none;
-  font-size:.9rem;
-}
-</style>
+  <meta property="og:url" content="https://github.com/ELostora123/Creating_images/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Genretor Photo</title>
 </head>
-
 <body>
-
-<div class="site-name">Daham</div>
-
-<img src="https://iili.io/fM13Wla.md.jpg" alt="profile">
-
-<h1>Daham</h1>
-<p>
-اهلاً، اني دحام، مبرمج قديم عندي خبرة ومطور برمجيات مختلفة،
-أعمل بجهد حتى أقدم أفضل تجربة للمستخدم.
-</p>
-
-<div class="links">
-  <a href="https://t.me/m_5_kk">Telegram</a>
-  <a href="https://t.me/WebDroms">Channel</a>
-</div>
-
+  <div id="img-div">
+    <img id="img1">
+    <img id="img2">
+    <img id="img3">
+  </div>
+  <div id="loader"></div>
+  <div id="submit">
+    <input id="t" type="text">
+    <input onclick="getimg()" id="bt" type="submit" value="انشاء صورة">
+  </div>
+  <script src="main.js"></script>
+  <p>تم انشاء هذا الموقع بواسطه هشام</p>
+  <p><a href="https://t.me/ess_9">Telegram</a> • <a href="https://t.me/s_wiw">Cannel</a></p>
 </body>
 </html>
